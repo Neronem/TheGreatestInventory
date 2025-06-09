@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class UIInventory : MonoBehaviour
     void Reset()
     {
         returnButton = Util.TryGetChildComponent<Button>(this, "Btn_Return");
+    }
+
+    private void Start()
+    {
         returnButton.onClick.AddListener(() => UIManager.instance.OpenMainMenu(this.gameObject));
     }
 }

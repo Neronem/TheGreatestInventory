@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,6 +23,10 @@ public class UIStatus : MonoBehaviour
         criticalInfo = Util.TryGetChildComponent<TextMeshProUGUI>(this, "Tmp_CriticalInfo");
 
         returnButton = Util.TryGetChildComponent<Button>(this, "Btn_Return");
+    }
+
+    private void Start()
+    {
         returnButton.onClick.AddListener(() => UIManager.instance.OpenMainMenu(this.gameObject));
     }
 
@@ -29,5 +34,13 @@ public class UIStatus : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetUIStatus(Character character)
+    {
+        attackInfo.text = character.Attack.ToString();
+        defenseInfo.text = character.Defense.ToString();
+        healthInfo.text = character.Health.ToString();
+        criticalInfo.text = character.Critical.ToString();
     }
 }

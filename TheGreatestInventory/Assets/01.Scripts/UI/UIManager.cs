@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Reset()
     {
         MainMenu = FindObjectOfType<UIMainMenu>(true);
         Inventory = FindObjectOfType<UIInventory>(true);
@@ -50,12 +50,14 @@ public class UIManager : MonoBehaviour
 
     public void OpenStatusMenu()
     {
+        Debug.Log("OpenStatusMenu");
         MainMenu.BtnDisappear();
         Status.gameObject.SetActive(true);
     }
     
     public void OpenInventory()
     {
+        Debug.Log("OpenInventory");
         MainMenu.BtnDisappear();
         Inventory.gameObject.SetActive(true);
     }

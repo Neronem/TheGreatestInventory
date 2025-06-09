@@ -10,22 +10,20 @@ public class Character
     [field: SerializeField] public string Description { get; private set; }
     [field: SerializeField] public int Exp { get; private set; }
     [field: SerializeField] public int MaxExp { get; private set; }
-    [field: SerializeField] public int MaxHp { get; private set; }
-    [field: SerializeField] public int CurrentHp { get; private set; }
+    [field: SerializeField] public int Health { get; private set; }
     [field: SerializeField] public int Attack { get; private set; }
     [field: SerializeField] public int Defense { get; private set; }
     [field: SerializeField] public int Gold { get; private set; }
     [field: SerializeField] public int Critical { get; private set; }
 
-    public Character(string name, int level, string description, int maxExp, int maxHp, int attack, int defense, int gold, int critical)
+    public Character(string name, int level, string description, int maxExp, int health, int attack, int defense, int gold, int critical)
     {
         Name = name;
         Level = level;
         Description = description;
         Exp = 0;
         MaxExp = maxExp;
-        MaxHp = maxHp;
-        CurrentHp = maxHp;
+        Health = health;
         Attack = attack;
         Defense = defense;
         Gold = gold;

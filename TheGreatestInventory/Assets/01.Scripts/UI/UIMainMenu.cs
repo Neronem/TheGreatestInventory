@@ -33,7 +33,10 @@ public class UIMainMenu : MonoBehaviour
         
         statusButton = Util.TryGetChildComponent<Button>(this, "Btn_Status");
         inventoryButton = Util.TryGetChildComponent<Button>(this, "Btn_Inventory");
-        
+    }
+
+    private void Start()
+    {
         statusButton.onClick.AddListener(() => UIManager.instance.OpenStatusMenu());
         inventoryButton.onClick.AddListener(() => UIManager.instance.OpenInventory());
     }
@@ -49,6 +52,14 @@ public class UIMainMenu : MonoBehaviour
         statusButton.gameObject.SetActive(false);
         inventoryButton.gameObject.SetActive(false);
     }
-    
-    
+
+    public void SetUIMainMenu(Character character)
+    {
+        characterName.text = character.Name;
+        characterLevel.text = character.Level.ToString();
+        characterDescription.text = character.Description;
+        characterGold.text = character.Gold.ToString();
+        levelProcess.text = $"{character.Exp} / {character.MaxExp}";
+        levelInfoImage.fillAmount = character.Exp / character.MaxExp;
+    }
 }
