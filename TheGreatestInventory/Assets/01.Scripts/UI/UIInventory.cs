@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Button returnButton;
+    void Reset()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        returnButton = Util.TryGetChildComponent<Button>(this, "Btn_Return");
+        returnButton.onClick.AddListener(() => UIManager.instance.OpenMainMenu(this.gameObject));
     }
 }
