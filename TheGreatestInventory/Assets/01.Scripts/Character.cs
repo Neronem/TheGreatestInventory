@@ -16,7 +16,10 @@ public class Character
     [field: SerializeField] public int Gold { get; private set; }
     [field: SerializeField] public int Critical { get; private set; }
 
-    public Character(string name, int level, string description, int maxExp, int health, int attack, int defense, int gold, int critical)
+    [field: SerializeField] public List<ItemData> CharacterInventory { get; private set; }
+
+    public Character(string name, int level, string description, int maxExp, int health, int attack, int defense,
+        int gold, int critical, List<ItemData> characterInventory)
     {
         Name = name;
         Level = level;
@@ -28,5 +31,31 @@ public class Character
         Defense = defense;
         Gold = gold;
         Critical = critical;
+        CharacterInventory = characterInventory;
+    }
+
+    public void AddItem(ItemData item)
+    {
+        CharacterInventory.Add(item);
+    }
+
+    public void EquipOrUnEquipItem(string itemName, bool isEquip)
+    {
+        ItemData targetItem = CharacterInventory.Find(item => item.ItemName == itemName);
+
+        if (targetItem == null)
+        {
+            Debug.LogWarning($"아이템 '{itemName}' 인벤토리에 없음!");
+            return;
+        }
+        
+        if (isEquip)
+        {
+            targetItem.EquipItem();
+        }
+        else
+        {
+            targetItem.UnEquipItem();
+        }
     }
 }

@@ -50,15 +50,18 @@ public class UIManager : MonoBehaviour
 
     public void OpenStatusMenu()
     {
-        Debug.Log("OpenStatusMenu");
         MainMenu.BtnDisappear();
         Status.gameObject.SetActive(true);
     }
     
     public void OpenInventory()
     {
-        Debug.Log("OpenInventory");
         MainMenu.BtnDisappear();
         Inventory.gameObject.SetActive(true);
+    }
+
+    public void InitInventory(Character player)
+    {
+        Inventory.InitInventoryUI(player);
     }
 }
