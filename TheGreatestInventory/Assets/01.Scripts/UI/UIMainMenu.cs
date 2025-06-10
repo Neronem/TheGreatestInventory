@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,8 +38,15 @@ public class UIMainMenu : MonoBehaviour
 
     private void Start()
     {
-        statusButton.onClick.AddListener(() => UIManager.instance.OpenStatusMenu());
-        inventoryButton.onClick.AddListener(() => UIManager.instance.OpenInventory());
+        statusButton.onClick.AddListener(() =>
+        {
+            ButtonAnimation(statusButton.transform, () => UIManager.instance.OpenStatusMenu());
+        });
+        
+        inventoryButton.onClick.AddListener(() =>
+        {
+            ButtonAnimation(inventoryButton.transform, () => UIManager.instance.OpenInventory());
+        });
     }
 
     public void BtnAppear()
@@ -61,5 +69,13 @@ public class UIMainMenu : MonoBehaviour
         characterGold.text = character.Gold.ToString();
         levelProcess.text = $"{character.Exp} / {character.MaxExp}";
         levelInfoImage.fillAmount = character.Exp / character.MaxExp;
+    }
+
+    public void ButtonAnimation(Transform _transform, Action onComplete = null)
+    {
+        _transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.OutBack).OnComplete(() =>
+        {
+            onComplete?.Invoke();
+        });
     }
 }

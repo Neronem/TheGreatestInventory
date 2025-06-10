@@ -49,36 +49,13 @@ public class UIManager : MonoBehaviour
     {
         MainMenu.BtnDisappear();
         Status.SetUIStatus(player);
-        ShowUIWithSlide(Status.gameObject.GetComponent<RectTransform>(), true);
+        Status.gameObject.SetActive(true);
     }
 
     public void OpenInventory()
     {
         MainMenu.BtnDisappear();
         Inventory.SetInventory(player);
-        ShowUIWithSlide(Inventory.gameObject.GetComponent<RectTransform>(), true);
-    }
-
-    // 슬라이드 애니메이션 함수: 활성화/비활성화 포함
-    private void ShowUIWithSlide(RectTransform uiRect, bool show)
-    {
-        float screenWidth = Screen.width;
-        float duration = 0.5f;
-
-        if (show)
-        {
-            uiRect.gameObject.SetActive(true);
-            // 오른쪽 밖에서 왼쪽(원위치)으로 슬라이드
-            uiRect.anchoredPosition = new Vector2(screenWidth, uiRect.anchoredPosition.y);
-            uiRect.DOAnchorPosX(0, duration).SetEase(Ease.OutCubic);
-        }
-        else
-        {
-            // 왼쪽에서 오른쪽 밖으로 슬라이드 후 비활성화
-            uiRect.DOAnchorPosX(screenWidth, duration).SetEase(Ease.InCubic).OnComplete(() =>
-            {
-                uiRect.gameObject.SetActive(false);
-            });
-        }
+        Inventory.gameObject.SetActive(true);
     }
 }
