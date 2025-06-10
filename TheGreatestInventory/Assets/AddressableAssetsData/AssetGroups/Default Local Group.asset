@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 12c2fa23dd715ea41909bf9ec8bdb244
+  m_SerializeEntries:
+  - m_GUID: 12411552d153017498f25402a9b74393
+    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/BrokenSword.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 647faa138e1f50e40bf31e014ffb260e
+    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/FireSword.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9326dc18bcf51d147976973391fbeda2
+    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/LegendSword.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 691fa48e718af214888fb60af778ca5c
+    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/SaladinSword.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c64e5e9f453ba76449b0abeb085d25b7
+    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/SharpSword.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f77abfa34eb73c74aa971fc26a557be5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 66d9b07609a820340a3b32803afa8f5b, type: 2}
+    - {fileID: 11400000, guid: c9f8cbc70171d3a438d7f72af3036b5e, type: 2}
