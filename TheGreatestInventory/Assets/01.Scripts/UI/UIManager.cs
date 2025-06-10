@@ -14,7 +14,16 @@ public class UIManager : MonoBehaviour
 
     private GameManager GM => GameManager.instance;
     private Character player => GM.player;
+    
+    private float screenWidth = Screen.width;
+    private float doTweenDuration = 0.5f;
+    
+    [SerializeField] private RectTransform statusRectTransform;
+    [SerializeField] private RectTransform inventoryRectTransform;
 
+    [SerializeField] private Vector2 statusOriginalPos;
+    [SerializeField] private Vector2 inventoryOriginalPos;
+    
     private void Awake()
     {
         if (instance == null)
@@ -34,6 +43,12 @@ public class UIManager : MonoBehaviour
         Inventory = FindObjectOfType<UIInventory>(true);
         Status = FindObjectOfType<UIStatus>(true);
 
+        inventoryRectTransform = Util.TryGetChildComponent<RectTransform>(Inventory, "Group_Inventory");
+        statusRectTransform = Util.TryGetChildComponent<RectTransform>(Status, "Group_Status");
+        
+        statusOriginalPos = statusRectTransform.anchoredPosition;
+        inventoryOriginalPos = inventoryRectTransform.anchoredPosition;
+        
         MainMenu.gameObject.SetActive(true);
         Inventory.gameObject.SetActive(false);
         Status.gameObject.SetActive(false);
@@ -41,21 +56,57 @@ public class UIManager : MonoBehaviour
 
     public void OpenMainMenu(GameObject obj)
     {
-        obj.SetActive(false);
-        MainMenu.BtnAppear();
+        if (obj == Status.gameObject)
+        {
+            ShowUIWithSlide(obj, statusRectTransform, false, statusOriginalPos);
+        }
+        
+        if (obj == Inventory.gameObject)
+        {
+            ShowUIWithSlide(obj, inventoryRectTransform, false, inventoryOriginalPos);
+        }
     }
 
     public void OpenStatusMenu()
     {
         MainMenu.BtnDisappear();
         Status.SetUIStatus(player);
-        Status.gameObject.SetActive(true);
+        
+        ShowUIWithSlide(Status.gameObject, statusRectTransform, true, statusOriginalPos);
     }
 
     public void OpenInventory()
     {
         MainMenu.BtnDisappear();
         Inventory.SetInventory(player);
-        Inventory.gameObject.SetActive(true);
+        
+        ShowUIWithSlide(Inventory.gameObject, inventoryRectTransform, true, inventoryOriginalPos);
     }
+    
+    private void ShowUIWithSlide(GameObject rootObject, RectTransform uiRect, bool show, Vector2 originalPos)
+    {
+        Vector2 hiddenPos = new Vector2(screenWidth, originalPos.y);
+
+        if (show)
+        {
+            rootObject.SetActive(true);
+            uiRect.anchoredPosition = hiddenPos; // 숨김 위치에서 시작
+            uiRect.DOAnchorPos(originalPos, doTweenDuration)
+                .SetEase(Ease.OutCubic);
+        }
+        else
+        {
+            uiRect.DOAnchorPos(hiddenPos, doTweenDuration)
+                .SetEase(Ease.InCubic)
+                .OnComplete(() =>
+                {
+                    rootObject.SetActive(false);
+                    MainMenu.BtnAppear();
+                });
+        }
+    }
+
+
 }
+
+
