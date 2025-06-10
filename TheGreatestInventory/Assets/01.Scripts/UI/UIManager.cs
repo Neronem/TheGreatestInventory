@@ -46,12 +46,15 @@ public class UIManager : MonoBehaviour
         inventoryRectTransform = Util.TryGetChildComponent<RectTransform>(Inventory, "Group_Inventory");
         statusRectTransform = Util.TryGetChildComponent<RectTransform>(Status, "Group_Status");
         
-        statusOriginalPos = statusRectTransform.anchoredPosition;
-        inventoryOriginalPos = inventoryRectTransform.anchoredPosition;
-        
         MainMenu.gameObject.SetActive(true);
         Inventory.gameObject.SetActive(false);
         Status.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        statusOriginalPos = statusRectTransform.anchoredPosition;
+        inventoryOriginalPos = inventoryRectTransform.anchoredPosition;
     }
 
     public void OpenMainMenu(GameObject obj)

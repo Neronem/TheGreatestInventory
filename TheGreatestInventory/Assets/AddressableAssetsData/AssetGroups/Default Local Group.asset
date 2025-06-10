@@ -16,32 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 12c2fa23dd715ea41909bf9ec8bdb244
-  m_SerializeEntries:
-  - m_GUID: 12411552d153017498f25402a9b74393
-    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/BrokenSword.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 647faa138e1f50e40bf31e014ffb260e
-    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/FireSword.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9326dc18bcf51d147976973391fbeda2
-    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/LegendSword.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 691fa48e718af214888fb60af778ca5c
-    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/SaladinSword.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c64e5e9f453ba76449b0abeb085d25b7
-    m_Address: Assets/04.ScriptableObject/Item/ItemScritableObject/SharpSword.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f77abfa34eb73c74aa971fc26a557be5, type: 2}
   m_SchemaSet:
