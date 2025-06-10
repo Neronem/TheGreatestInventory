@@ -21,15 +21,35 @@ public class UIInventory : MonoBehaviour
         returnButton.onClick.AddListener(() => UIManager.instance.OpenMainMenu(this.gameObject));
     }
 
-    public void InitInventoryUI(Character player)
+    public void SetInventory(Character player)
     {
-        foreach (ItemData itemData in player.CharacterInventory)
-        {
-            GameObject obj = Instantiate(slotPrefab, slotParent);
-            UISlot slot = obj.GetComponent<UISlot>();
-            slots.Add(slot);
+        ClearInventory(); // 기존 슬롯 전부 비활성화만
 
-            slot.SetItemData(itemData);
+        for (int i = 0; i < player.CharacterInventory.Count; i++)
+        {
+            UISlot slot;
+
+            // 재사용 가능한 슬롯이 있다면 재사용
+            if (i < slots.Count)
+            {
+                slot = slots[i];
+                slot.gameObject.SetActive(true);
+            }
+            else
+            {
+                // 부족하면 새로 생성해서 리스트에 추가
+                GameObject obj = Instantiate(slotPrefab, slotParent);
+                slot = obj.GetComponent<UISlot>();
+                slots.Add(slot);
+            }
+
+            slot.SetItemData(player.CharacterInventory[i]);
+        }
+
+        // 남은 슬롯은 비활성화
+        for (int i = player.CharacterInventory.Count; i < slots.Count; i++)
+        {
+            slots[i].gameObject.SetActive(false);
         }
     }
 
@@ -37,7 +57,7 @@ public class UIInventory : MonoBehaviour
     {
         foreach (UISlot slot in slots)
         {
-            Destroy(slot.gameObject);
+            slot.gameObject.SetActive(false);
         }
     }
 }

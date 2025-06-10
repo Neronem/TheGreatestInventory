@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     [field:SerializeField] public UIInventory Inventory { get; private set; }
     [field:SerializeField] public UIStatus Status { get; private set; }
     
+    private GameManager GM => GameManager.instance;
+    private Character player => GM.player;
+    
     private void Awake()
     {
         if (instance == null)
@@ -24,7 +27,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Reset()
     {
         MainMenu = FindObjectOfType<UIMainMenu>(true);
@@ -36,12 +38,6 @@ public class UIManager : MonoBehaviour
         Status.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OpenMainMenu(GameObject obj)
     {
         obj.SetActive(false);
@@ -51,17 +47,14 @@ public class UIManager : MonoBehaviour
     public void OpenStatusMenu()
     {
         MainMenu.BtnDisappear();
+        Status.SetUIStatus(player);
         Status.gameObject.SetActive(true);
     }
     
     public void OpenInventory()
     {
         MainMenu.BtnDisappear();
+        Inventory.SetInventory(player);
         Inventory.gameObject.SetActive(true);
-    }
-
-    public void InitInventory(Character player)
-    {
-        Inventory.InitInventoryUI(player);
     }
 }
