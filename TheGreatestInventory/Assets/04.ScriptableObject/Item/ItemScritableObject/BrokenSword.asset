@@ -15,3 +15,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: BrokenSword
   <Icon>k__BackingField: {fileID: 21300000, guid: 33d2dedce2bf19d49a69071859415102, type: 3}
   <IsEquip>k__BackingField: 0
+  <Attack>k__BackingField: 5
+  <Defense>k__BackingField: 5
+  <Health>k__BackingField: 10
+  <Critical>k__BackingField: 4

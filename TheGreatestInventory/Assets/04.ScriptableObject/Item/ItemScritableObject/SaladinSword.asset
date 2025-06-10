@@ -15,3 +15,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: SaladinSword
   <Icon>k__BackingField: {fileID: 21300000, guid: 10aa26f573ffee642adbea4463cb4f6f, type: 3}
   <IsEquip>k__BackingField: 0
+  <Attack>k__BackingField: 6
+  <Defense>k__BackingField: 10
+  <Health>k__BackingField: 5
+  <Critical>k__BackingField: 2

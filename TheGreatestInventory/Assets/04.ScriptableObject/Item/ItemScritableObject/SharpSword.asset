@@ -15,3 +15,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: SharpSword
   <Icon>k__BackingField: {fileID: 21300000, guid: ffd655031cbc3324180f0b9a227307cf, type: 3}
   <IsEquip>k__BackingField: 0
+  <Attack>k__BackingField: 10
+  <Defense>k__BackingField: 10
+  <Health>k__BackingField: 10
+  <Critical>k__BackingField: 10

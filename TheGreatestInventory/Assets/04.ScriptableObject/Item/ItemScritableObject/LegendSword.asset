@@ -15,3 +15,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: LegendSword
   <Icon>k__BackingField: {fileID: 21300000, guid: 8798a51de3394c0409ce228c7132cd5f, type: 3}
   <IsEquip>k__BackingField: 0
+  <Attack>k__BackingField: 4
+  <Defense>k__BackingField: 6
+  <Health>k__BackingField: 10
+  <Critical>k__BackingField: 5

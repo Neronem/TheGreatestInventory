@@ -2311,11 +2311,11 @@ MonoBehaviour:
     <Description>k__BackingField: 
     <Exp>k__BackingField: 0
     <MaxExp>k__BackingField: 0
-    <Health>k__BackingField: 0
-    <Attack>k__BackingField: 0
-    <Defense>k__BackingField: 0
     <Gold>k__BackingField: 0
-    <Critical>k__BackingField: 0
+    <BaseHealth>k__BackingField: 0
+    <BaseAttack>k__BackingField: 0
+    <BaseDefense>k__BackingField: 0
+    <BaseCritical>k__BackingField: 0
     <CharacterInventory>k__BackingField: []
   itemDatas:
   - {fileID: 11400000, guid: 647faa138e1f50e40bf31e014ffb260e, type: 2}

@@ -15,3 +15,7 @@ MonoBehaviour:
   <ItemName>k__BackingField: FireSword
   <Icon>k__BackingField: {fileID: 21300000, guid: baea2158bbe8c7d4381a2798850077df, type: 3}
   <IsEquip>k__BackingField: 1
+  <Attack>k__BackingField: 5
+  <Defense>k__BackingField: 7
+  <Health>k__BackingField: 10
+  <Critical>k__BackingField: 5

@@ -38,6 +38,8 @@ public class UIStatus : MonoBehaviour
 
     public void SetUIStatus(Character character)
     {
+        character.RefreshCharacterStatus();
+        
         attackInfo.text = character.Attack.ToString();
         defenseInfo.text = character.Defense.ToString();
         healthInfo.text = character.Health.ToString();

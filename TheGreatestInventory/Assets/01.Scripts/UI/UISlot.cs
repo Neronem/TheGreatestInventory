@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class UISlot : MonoBehaviour
 {
+    [SerializeField] private Button button;
+    
     [SerializeField] private Image icon;
     [SerializeField] private GameObject equip;
     
@@ -15,11 +17,15 @@ public class UISlot : MonoBehaviour
     {
         icon = Util.TryGetChildComponent<Image>(this, "Img_Icon");
         equip = Util.TryFindChild(this, "Img_EquipBg");
+        button = GetComponent<Button>();
     }
 
     public void SetItemData(ItemData itemData)
     {
         this.itemData = itemData;
+        button.onClick.RemoveAllListeners(); // 기존 리스너 제거
+        button.onClick.AddListener(() => GameManager.instance.player.EquipOrUnEquipItem(itemData.ItemName, true)); // 새로 등록
+        
         RefreshUI();
     }
 
