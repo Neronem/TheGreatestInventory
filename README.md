@@ -6,7 +6,9 @@
 ## 🧐 Project Introduction
 본 프로젝트 **"위대한 인벤토리"** 는 간단한 인벤토리 시뮬레이터로,
 인벤토리에서 아이템을 장착 후, 상태창에서 자신의 스탯 정보를 확인할 수 있습니다.
+
 <br><br>
+
 
 ## 🎮 조작 방법
 
@@ -34,6 +36,7 @@
 <br><br>
 - Unity Addressables (리소스 관리 및 학습 목적 비동기 로딩 실습)  
   → <a href="https://github.com/Neronem/TheGreatestInventory/blob/dev/FunctionExplains/Addressable.md">자세한 내용 보러가기</a>
+  
 <br><br>
 
 ## ⌚ Development Period
