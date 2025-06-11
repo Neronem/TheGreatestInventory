@@ -5,16 +5,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Status UI 관리
+/// </summary>
 public class UIStatus : MonoBehaviour
 {
+    // 플레이어 능력치 출력할 텍스트들
+    [Header("Informations")]
     [SerializeField] private TextMeshProUGUI attackInfo;
     [SerializeField] private TextMeshProUGUI defenseInfo;
     [SerializeField] private TextMeshProUGUI healthInfo;
     [SerializeField] private TextMeshProUGUI criticalInfo;
 
-    [SerializeField] private Button returnButton;
+    [SerializeField] private Button returnButton; // 돌아가기 버튼
     
-    // Start is called before the first frame update
     void Reset()
     {
         attackInfo = Util.TryGetChildComponent<TextMeshProUGUI>(this, "Tmp_AttackInfo");
@@ -26,16 +30,14 @@ public class UIStatus : MonoBehaviour
     }
 
     private void Start()
-    {
+    { // 돌아가기 버튼에 OpenMainMenu 메소드 등록
         returnButton.onClick.AddListener(() => UIManager.instance.OpenMainMenu(this.gameObject));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Character 정보 가져와서 UI에 세팅
+    /// </summary>
+    /// <param name="character"></param>
     public void SetUIStatus(Character character)
     {
         character.RefreshCharacterStatus();
